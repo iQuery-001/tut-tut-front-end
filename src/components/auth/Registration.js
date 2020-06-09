@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Axios from "axios";
 // import JsonApi from "devour-client";
 
 // const jsonApi = new JsonApi({ apiUrl: "http://localhost:3001" });
@@ -25,7 +25,7 @@ class Registration extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axios
+    Axios
       .post(
         "http://localhost:3001/registrations",
         {
@@ -48,7 +48,7 @@ class Registration extends Component {
         });
       });
 
-      this.fieldReset();
+      // this.fieldReset();
     // console.log(event);
     // jsonApi.create("registration", {
     //   user: {
@@ -65,13 +65,13 @@ class Registration extends Component {
     });
   };
 
-  fieldReset = () => {
-    this.setState({
-      email: "",
-      password: "",
-      password_confirmation: "",
-    });
-  };
+  // fieldReset = () => {
+  //   this.setState({
+  //     email: "",
+  //     password: "",
+  //     password_confirmation: "",
+  //   });
+  // };
 
   render() {
     return (

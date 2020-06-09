@@ -1,4 +1,5 @@
 import { decorate, observable } from 'mobx'
+// import { observer } from 'mobx-react';
 
 class DataStore {
     users = [];
@@ -14,7 +15,7 @@ decorate(DataStore, {
 
 
 
-let store = window.store = new DataStore()
+let store = new DataStore()
 
 export default store
 

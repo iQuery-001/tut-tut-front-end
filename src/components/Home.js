@@ -17,11 +17,11 @@ class Home extends Component {
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
-      store: {
-        users: [],
-        articles: [],
-        comments: [],
-      },
+    //   store: {
+    //     users: [],
+    //     articles: [],
+    //     comments: [],
+    //   },
     };
   }
 
@@ -44,54 +44,14 @@ class Home extends Component {
     });
   };
 
-  populateStore = () => {
-    // Axios.get("http://localhost:3001/users")
-    // //   .then((res) => res.json())
-    //   .then((users) =>
-    //     this.setState({
-    //       ...this.state,
-    //       store: {
-    //         users: users,
-    //       },
-    //     })
-    //   );
-    Axios.get("http://localhost:3001/articles")
-    //   .then((res) => console.log(res))
-      .then((articles) =>
-        this.setState({
-          ...this.state,
-          store: {
-            articles: articles.data,
-          },
-        })
-      );
-    // Axios.get("http://localhost:3001/comments")
-    // //   .then((res) => res.json())
-    //   .then((comments) =>
-    //     this.setState({
-    //       ...this.state,
-    //       store: {
-    //         comments: comments,
-    //       },
-    //     })
-    //   );
-
-    //   this.setState({...this.state, store: {
-    //       users: users,
-    //       articles: articles,
-    //       comments: comments
-    //   }})
-  };
-
   componentDidMount() {
     // console.log(this.props);
     this.checkLoginStatus();
-    this.populateStore();
   }
 
   handleSuccessfulAuth = (data) => {
     this.handleLogin(data);
-    history.push("/");
+    // history.push("/");
   };
 
   checkLoginStatus = () => {
@@ -126,11 +86,13 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Nav
+          loggedInStatus={this.state.loggedInStatus}
           handleSuccessfulAuth={this.handleSuccessfulAuth}
           handleLogout={this.handleLogout}
           user={this.state.user}
         />
-
+        <br></br>
+        <br></br>
         <Router history={history}>
           <Switch>
             <Route
@@ -138,10 +100,10 @@ class Home extends Component {
               path="/"
               render={(props) => (
                 <Articles
-                  {...props}
+                //   {...props}
                   loggedInStatus={this.state.loggedInStatus}
                   user={this.state.user}
-                  store={this.state.store}
+                //   store={this.state.store}
                 />
               )}
             ></Route>
@@ -150,7 +112,7 @@ class Home extends Component {
               path={`/users/bio`}
               render={(props) => (
                 <UserBio
-                  {...props}
+                //   {...props}
                   loggedInStatus={this.state.loggedInStatus}
                   user={this.state.user}
                 />

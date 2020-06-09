@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-// import store from "./DataStore.js";
-// import { Observer } from "mobx-react";
+import ArticlePost from "./ArticlePost";
+import store from "./DataStore.js";
+import { observer } from "mobx-react";
 // import Axios from "axios";
 
-// const ArticleContainer = observer(
+const ArticleContainer = observer(
   class ArticleContainer extends Component {
-    // populateStore = () => {
-    //   Axios.get("http://localhost:3001/articles").then(
-    //     (articles) => (store.articles = articles)
-    //   );
-    // };
-
-    // componentDidMount() {
-    //   this.populateStore();
-    // }
     render() {
-      return this.props.store.articles.length ? <div>{this.props.store.articles[0].url}</div> : null}
+      return (
+        <div>
+          {store.articles.map((article) => (
+            <ArticlePost key={article.id} article={article} />
+          ))}
+        </div>
+      );
     }
-  
-// );
+  }
+);
 
 export default ArticleContainer;
