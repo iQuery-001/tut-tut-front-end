@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from 'axios'
+import Axios from "axios";
 
 class CreateArticle extends Component {
   constructor() {
@@ -20,24 +20,29 @@ class CreateArticle extends Component {
   handleSubmit = (event) => {
     // console.log(this.props.user)
     event.preventDefault();
-    Axios
-      .post(
-        "http://localhost:3001/articles",
-        {
-          article: {
-            user_id: this.props.user.id,
-            title: this.state.title,
-            url: this.state.url,
-            desc: this.state.desc,
-          },
-        }
-      ).then(res => {
-          console.log(res)
-          this.props.getNewArticles(res.data.article)
-        })
-    
-    
+    if (
+      this.state.title.length !== 0 &&
+      this.state.url.length !== 0 &&
+      this.state.desc.length !== 0
+    ) {
+      Axios.post("http://localhost:3001/articles", {
+        article: {
+          user_id: this.props.user.id,
+          title: this.state.title,
+          url: this.state.url,
+          desc: this.state.desc,
+        },
+      }).then((res) => {
+        console.log(res);
+        this.props.getNewArticles(res.data.article);
+      });
 
+      this.setState({
+        title: "",
+        url: "",
+        desc: "",
+      });
+    }
   };
 
   render() {
@@ -47,24 +52,27 @@ class CreateArticle extends Component {
           <input
             type="title"
             name="title"
-            placeholder="Put the title of the Tutorial here"
+            placeholder="Tutorial Title"
             value={this.state.title}
             onChange={this.handleChange}
           ></input>
           <input
             type="url"
             name="url"
-            placeholder="Put the url of the Tutorial here"
+            placeholder="Tutorial URL"
             value={this.state.url}
             onChange={this.handleChange}
           ></input>
-          <input
-            type="desc"
-            name="desc"
-            placeholder="Put the description of the Tutorial here"
-            value={this.state.desc}
-            onChange={this.handleChange}
-          ></input>
+          <br></br>
+          <label>
+            <br></br>
+            <textarea
+              name="desc"
+              value={this.state.desc}
+              onChange={this.handleChange}
+              placeholder="Tutorial Description"
+            />
+          </label>
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -73,3 +81,13 @@ class CreateArticle extends Component {
 }
 
 export default CreateArticle;
+
+{/* <label>
+  Description:
+  <textarea
+    name={desc}
+    value={this.state.desc}
+    onChange={this.handleChange}
+    placeholder="Tutorial Description"
+  />
+</label>; */}

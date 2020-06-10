@@ -2,3 +2,8 @@
     border-style: ridge;
     /* border-color: brown; */
 }
+
+.Timestamp {
+    font-size: 75%;
+    border-style: ridge;
+}
