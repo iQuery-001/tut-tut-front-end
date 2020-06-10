@@ -31,7 +31,13 @@ class CreateArticle extends Component {
             desc: this.state.desc,
           },
         }
-      )
+      ).then(res => {
+          console.log(res)
+          this.props.getNewArticles(res.data.article)
+        })
+    
+    
+
   };
 
   render() {

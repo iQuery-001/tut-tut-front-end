@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
 import { Router, Switch, Route } from "react-router-dom";
-import Articles from "./Articles";
-import UserBio from "./UserBio";
+import Articles from "./articles/Articles";
+// import UserBio from "./UserBio";
 import Axios from "axios";
 import { createBrowserHistory } from "history";
 // import { observer } from 'mobx-react'
@@ -17,11 +17,7 @@ class Home extends Component {
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
-    //   store: {
-    //     users: [],
-    //     articles: [],
-    //     comments: [],
-    //   },
+      currentArticleID: 0
     };
   }
 
@@ -82,6 +78,13 @@ class Home extends Component {
       });
   };
 
+//   loadArticle = (id) => {
+//       this.setState({
+//           currentArticleID: id
+//       })
+//       history.push(`/articles/${id}}`)
+//   }
+
   render() {
     return (
       <React.Fragment>
@@ -103,18 +106,9 @@ class Home extends Component {
                 //   {...props}
                   loggedInStatus={this.state.loggedInStatus}
                   user={this.state.user}
+                  history={history}
+                //   loadArticle={this.loadArticle}
                 //   store={this.state.store}
-                />
-              )}
-            ></Route>
-            <Route
-              exact
-              path={`/users/bio`}
-              render={(props) => (
-                <UserBio
-                //   {...props}
-                  loggedInStatus={this.state.loggedInStatus}
-                  user={this.state.user}
                 />
               )}
             ></Route>
