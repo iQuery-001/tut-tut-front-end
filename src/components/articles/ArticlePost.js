@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./ArticlePost.css";
+// import "./ArticlePost.css";
 import CommentsContainer from "../comments/CommentsContainer";
 // import store from "./DataStore";
 import Axios from "axios";
+import '../Grid.css'
 
 class ArticlePost extends Component {
   constructor() {
@@ -33,21 +34,21 @@ class ArticlePost extends Component {
 
   render() {
     return (
-      <div className="article_post">
+      <div className="post-grid-container">
         <div onClick={() => this.props.clickHandler(this.props.article)}>
-          <p>Title: {this.props.article.title}</p>
-          <p>Source: {this.props.article.url}</p>
+          <p className="Title">Title: {this.props.article.title}</p>
+          <p className="URL">Source: {this.props.article.url}</p> 
           {this.props.individualPost ? (
-            <p>Decripton: {this.props.article.description}</p>
+            <p className="Description">Decripton: {this.props.article.description}</p>
           ) : (
-            <p>
-              Description: {this.truncate(this.props.article.description, 75)}
+            <p className="Description">
+              Description: {this.truncate(this.props.article.description, 25)}
             </p>
           )}
         </div>
 
-        <span>Sourcefinder: {this.state.currentUser.email}</span>
-        <span className="Timestamp"> {this.props.article.created_at} </span>
+        <div className="Sourcefinder">Sourcefinder: {this.state.currentUser.email}</div>
+        <div className="Timestamp"> {this.props.article.created_at} </div>
         {this.props.individualPost ? (
           <CommentsContainer
             user={this.props.user}

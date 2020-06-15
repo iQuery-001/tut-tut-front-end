@@ -4,6 +4,7 @@ import store from "../DataStore.js";
 import { observer } from "mobx-react";
 // import Axios from "axios";
 import CreateArticle from "./CreateArticle";
+import '../Grid.css'
 
 const Articles = observer(
   class Articles extends React.Component {
@@ -25,7 +26,7 @@ const Articles = observer(
     render() {
       // console.log(this.props.store)
       return (
-        <div>
+        <div className="Articles">
           {this.props.loggedInStatus === "LOGGED_IN" ? (
             <CreateArticle
               user={this.props.user}

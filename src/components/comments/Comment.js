@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Comment.css";
+// import "./Comment.css";
 // import store from "../DataStore";
 // import { observer } from "mobx-react";
 import Axios from "axios";
@@ -13,7 +13,7 @@ class Comment extends Component {
     };
   }
   getUser = () => {
-    console.log(this.props.comment.user_id);
+    // console.log(this.props.comment.user_id);
     Axios.get(`http://localhost:3001/users/${this.props.comment.user_id}`).then(
       (user) => {
         // console.log(user)
@@ -31,10 +31,18 @@ class Comment extends Component {
 
   render() {
     return (
-      <div className="Comment">
+      <div className="Comments">
         <h4>{`${this.state.currentUser.email} says:`}</h4>
         <p>{this.props.comment.content}</p>
         <span className="Timestamp">{this.props.comment.created_at}</span>
+        {this.props.user.id === this.props.comment.user_id ? (
+          <button
+            onClick={() => this.props.deleteComment(this.props.comment)}
+          >
+            Delete Comment
+          </button>
+        ) : null}
+
         {this.state.currentUser.id === this.props.comment.user_id ? (
           <EditComment
             user={this.props.user}

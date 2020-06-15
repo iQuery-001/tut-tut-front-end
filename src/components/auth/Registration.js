@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import '../Grid.css'
 // import JsonApi from "devour-client";
 
 // const jsonApi = new JsonApi({ apiUrl: "http://localhost:3001" });
@@ -78,6 +79,7 @@ class Registration extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="form-input"
             type="email"
             name="email"
             placeholder="Email Address"
@@ -86,6 +88,7 @@ class Registration extends Component {
             required
           />
           <input
+            className="form-input"
             type="password"
             name="password"
             placeholder="Password"
@@ -94,6 +97,7 @@ class Registration extends Component {
             required
           />
           <input
+            className="form-input"
             type="password"
             name="password_confirmation"
             placeholder="Password Confirmation"
@@ -101,7 +105,7 @@ class Registration extends Component {
             onChange={this.handleChange}
             required
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Register</button>
         </form>
       </div>
     );

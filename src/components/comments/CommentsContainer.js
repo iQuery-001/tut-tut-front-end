@@ -4,6 +4,7 @@ import Comment from "./Comment";
 import { observer } from "mobx-react";
 import Axios from "axios";
 import CreateComment from "./CreateComment";
+import '../Grid.css'
 
 const CommentsContainer = observer(
   class CommentsContainer extends Component {
@@ -31,6 +32,21 @@ const CommentsContainer = observer(
     componentDidMount() {
       this.populateComments();
     }
+
+    deleteComment = (reqComment) => {
+      if (this.props.user.id === reqComment.user_id) {
+        console.log(reqComment)
+        store.comments = [
+          ...store.comments.filter((comment) => reqComment.id !== comment.id),
+        ];
+
+        // Axios.delete(`http://localhost:3001/comments/${id}`);
+        fetch(`http://localhost:3001/comments/${reqComment.id}`, {
+            method: "DELETE"
+        }).then(res => console.log(res));
+      }
+    };
+
     render() {
       return (
         <div>
@@ -43,7 +59,13 @@ const CommentsContainer = observer(
           ) : null}
 
           {store.comments.map((comment) => (
-            <Comment user={this.props.user} key={comment.id} comment={comment}></Comment>
+            <Comment
+              user={this.props.user}
+              key={comment.id}
+              comment={comment}
+              getNewComments={this.getNewComments}
+              deleteComment={this.deleteComment}
+            ></Comment>
           ))}
         </div>
       );

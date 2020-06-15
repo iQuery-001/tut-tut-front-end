@@ -3,13 +3,13 @@ import Nav from "./Nav";
 import { Router, Switch, Route } from "react-router-dom";
 import Articles from "./articles/Articles";
 import ArticlePost from "./articles/ArticlePost";
-
-// import UserBio from "./UserBio";
 import Axios from "axios";
 import { createBrowserHistory } from "history";
 // import ArticleModal from "./articles/ArticleModal";
 import { observer } from "mobx-react";
 import store from "./DataStore";
+import './Grid.css'
+import "semantic-ui-css/semantic.min.css";
 
 const history = createBrowserHistory();
 
@@ -103,7 +103,7 @@ const Home = observer(
 
     render() {
       return (
-        <React.Fragment>
+        <div className="grid-container">
           <Nav
             loggedInStatus={this.state.loggedInStatus}
             handleSuccessfulAuth={this.handleSuccessfulAuth}
@@ -111,8 +111,6 @@ const Home = observer(
             user={this.state.user}
           />
           {/* <ArticleModal article={{url: "blah"}}/> */}
-          <br></br>
-          <br></br>
           <Router history={history}>
             <Switch>
               <Route
@@ -140,7 +138,7 @@ const Home = observer(
               </Route>
             </Switch>
           </Router>
-        </React.Fragment>
+        </div>
       );
     }
   }

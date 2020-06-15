@@ -1,0 +1,65 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 40px 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . . ." "Articles Articles Articles Articles Articles";
+  background-color: gray;
+}
+
+.Articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ".";
+  grid-area: Articles;
+  margin-top: 2px;
+}
+
+.nav {
+  grid-row: 1/2;
+  grid-column: 1/6;
+  background-color: gray;
+}
+
+.post-grid-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  /* grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 1fr; */
+  grid-template-rows: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 1px 1px;
+  background-color: lightslategray;
+  border-style: solid;
+  margin: 2px;
+  padding: 3px;
+  width: 99.7vw;
+}
+
+.Title {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.Description {
+  grid-area: 2 / 1 / 7 / 2;
+  overflow-wrap: anywhere;
+}
+
+.URL {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.Timestamp {
+  grid-area: 9 / 4 / 10 / 5;
+}
+
+.Sourcefinder {
+  grid-area: 1 / 2 / 3 / 5;
+}
+
+.Comments {
+  grid-area: 10 / 1 / 11 / 5;
+  border-style: solid;
+  margin: 2px;
+  padding: 3px;
+}
