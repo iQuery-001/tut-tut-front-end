@@ -17,7 +17,7 @@ const CommentsContainer = observer(
     // };
 
     populateComments = () => {
-      Axios.get(`http://localhost:3001/articles/${this.props.article.id}`).then(
+      Axios.get(`https://peaceful-eyrie-92044.herokuapp.com/articles/${this.props.article.id}`).then(
         (article) => {
           // console.log(article)
           store.comments = article.data.comments.reverse();
@@ -40,8 +40,8 @@ const CommentsContainer = observer(
           ...store.comments.filter((comment) => reqComment.id !== comment.id),
         ];
 
-        // Axios.delete(`http://localhost:3001/comments/${id}`);
-        fetch(`http://localhost:3001/comments/${reqComment.id}`, {
+        // Axios.delete(`https://peaceful-eyrie-92044.herokuapp.com/comments/${id}`);
+        fetch(`https://peaceful-eyrie-92044.herokuapp.com/comments/${reqComment.id}`, {
             method: "DELETE"
         }).then(res => console.log(res));
       }

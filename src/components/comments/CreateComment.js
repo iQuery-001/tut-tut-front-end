@@ -21,11 +21,11 @@ class CreateComment extends Component {
     if (
       this.state.content.length !== 0
     ) {
-      Axios.post("http://localhost:3001/comments", {
+      Axios.post("https://peaceful-eyrie-92044.herokuapp.com/comments", {
         comment: {
           user_id: this.props.user.id,
           content: this.state.content,
-          article_id: this.props.article.id
+          article_id: this.props.article.id,
         },
       }).then((res) => {
         console.log(res);

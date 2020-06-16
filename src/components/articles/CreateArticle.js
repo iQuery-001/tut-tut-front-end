@@ -26,7 +26,7 @@ class CreateArticle extends Component {
       this.state.url.length !== 0 &&
       this.state.desc.length !== 0
     ) {
-      Axios.post("http://localhost:3001/articles", {
+      Axios.post("https://peaceful-eyrie-92044.herokuapp.com/articles", {
         article: {
           user_id: this.props.user.id,
           title: this.state.title,

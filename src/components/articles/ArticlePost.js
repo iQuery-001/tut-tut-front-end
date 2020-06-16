@@ -14,14 +14,14 @@ class ArticlePost extends Component {
   }
   getUser = () => {
     // console.log(this.props.article.user_id);
-    Axios.get(`http://localhost:3001/users/${this.props.article.user_id}`).then(
-      (user) => {
-        // console.log(user)
-        this.setState({
-          currentUser: user.data,
-        });
-      }
-    );
+    Axios.get(
+      `https://peaceful-eyrie-92044.herokuapp.com/users/${this.props.article.user_id}`
+    ).then((user) => {
+      // console.log(user)
+      this.setState({
+        currentUser: user.data,
+      });
+    });
     // console.log(this.state.currentUser);
   };
 

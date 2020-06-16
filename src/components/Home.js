@@ -36,7 +36,7 @@ const Home = observer(
         loggedInStatus: "NOT_LOGGED_IN",
         user: {},
       });
-      Axios.delete("http://localhost:3001/logout", {
+      Axios.delete("https://peaceful-eyrie-92044.herokuapp.com/logout", {
         withCredentials: true,
       }).catch((error) => {
         console.log("Errors: ", error);
@@ -44,7 +44,7 @@ const Home = observer(
     };
 
     populateStore = () => {
-      Axios.get("http://localhost:3001/articles").then((articles) => {
+      Axios.get("https://peaceful-eyrie-92044.herokuapp.com/articles").then((articles) => {
         store.articles = articles.data;
         // console.log(store.articles);
       });
@@ -62,7 +62,7 @@ const Home = observer(
     };
 
     checkLoginStatus = () => {
-      Axios.get("http://localhost:3001/logged_in", { withCredentials: true })
+      Axios.get("https://peaceful-eyrie-92044.herokuapp.com/logged_in", { withCredentials: true })
         .then((res) => {
           console.log(res);
           if (

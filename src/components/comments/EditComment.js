@@ -20,11 +20,14 @@ class EditComment extends Component {
     // console.log(this.props.user)
     event.preventDefault();
     if (this.state.content.length !== 0 && this.props.user.id === this.props.comment.user_id) {
-      Axios.patch(`http://localhost:3001/comments/${this.props.comment.id}`, {
-        comment: {
-          content: this.state.content
-        },
-      }).then((res) => {
+      Axios.patch(
+        `https://peaceful-eyrie-92044.herokuapp.com/comments/${this.props.comment.id}`,
+        {
+          comment: {
+            content: this.state.content,
+          },
+        }
+      ).then((res) => {
         console.log(res);
         // this.props.getNewComments(res.data.comment);
       });
