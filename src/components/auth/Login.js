@@ -27,7 +27,7 @@ class Login extends Component {
     event.preventDefault();
     axios
       .post(
-        "https://peaceful-eyrie-92044.herokuapp.com/sessions ",
+        "https://peaceful-eyrie-92044.herokuapp.com/sessions",
         {
           user: {
             email: this.state.email,
