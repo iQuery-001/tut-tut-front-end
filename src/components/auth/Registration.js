@@ -26,26 +26,25 @@ class Registration extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    Axios
-      .post(
-        "http://localhost:3001/registrations",
-        {
-          user: {
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation,
-          },
+    Axios.post(
+      "https://peaceful-eyrie-92044.herokuapp.com/registrations",
+      {
+        user: {
+          email: this.state.email,
+          password: this.state.password,
+          password_confirmation: this.state.password_confirmation,
         },
-        { withCredentials: true }
-      )
+      },
+      { withCredentials: true }
+    )
       .then((res) => {
-        if(res.data.status === 'created') {
-        this.props.handleSuccessfulAuth(res.data)
+        if (res.data.status === "created") {
+          this.props.handleSuccessfulAuth(res.data);
         }
       })
       .catch((error) => {
         this.setState({
-          registrationError: error
+          registrationError: error,
         });
       });
 

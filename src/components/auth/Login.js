@@ -27,23 +27,23 @@ class Login extends Component {
     event.preventDefault();
     axios
       .post(
-        "http://localhost:3001/sessions ",
+        "https://peaceful-eyrie-92044.herokuapp.com/sessions ",
         {
           user: {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
           },
         },
         { withCredentials: true }
       )
       .then((res) => {
-        console.log("res from Login: ", res)
+        console.log("res from Login: ", res);
         if (res.data.logged_in) {
           this.props.handleSuccessfulAuth(res.data);
         }
       })
       .catch((error) => {
-        console.log("Login error: ", error)
+        console.log("Login error: ", error);
         // this.setState({
         //   registrationError: error,
         // });
