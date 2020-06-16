@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import CommentsContainer from "../comments/CommentsContainer";
 // import store from "./DataStore";
 import Axios from "axios";
-import '../Grid.css'
+import "../Grid.css";
 
 class ArticlePost extends Component {
   constructor() {
@@ -37,9 +37,11 @@ class ArticlePost extends Component {
       <div className="post-grid-container">
         <div onClick={() => this.props.clickHandler(this.props.article)}>
           <p className="Title">Title: {this.props.article.title}</p>
-          <p className="URL">Source: {this.props.article.url}</p> 
+          <p className="URL">Source: {this.props.article.url}</p>
           {this.props.individualPost ? (
-            <p className="Description">Descripton: {this.props.article.description}</p>
+            <p className="Description">
+              Descripton: {this.props.article.description}
+            </p>
           ) : (
             <p className="Description">
               Description: {this.truncate(this.props.article.description, 25)}
@@ -47,7 +49,9 @@ class ArticlePost extends Component {
           )}
         </div>
 
-        <div className="Sourcefinder">Sourcefinder: {this.state.currentUser.email}</div>
+        <div className="Sourcefinder">
+          Sourcefinder: {this.state.currentUser.email}
+        </div>
         <div className="Timestamp"> {this.props.article.created_at} </div>
         {this.props.individualPost ? (
           <CommentsContainer
