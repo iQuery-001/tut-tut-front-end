@@ -86,4 +86,4 @@ class CreateArticle extends Component {
   }
 }
 
-export default CreateArticle;
+export default CreateArticle
