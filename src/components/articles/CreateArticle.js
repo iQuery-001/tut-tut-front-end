@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import "../Grid.css";
 
 class CreateArticle extends Component {
   constructor() {
@@ -47,9 +48,10 @@ class CreateArticle extends Component {
 
   render() {
     return (
-      <div>
+      <div className="create-article-grid-container">
         <form onSubmit={this.handleSubmit}>
           <input
+            className="t_title"
             type="title"
             name="title"
             placeholder="Tutorial Title"
@@ -57,6 +59,7 @@ class CreateArticle extends Component {
             onChange={this.handleChange}
           ></input>
           <input
+            className="t_url"
             type="url"
             name="url"
             placeholder="Tutorial URL"
@@ -67,13 +70,16 @@ class CreateArticle extends Component {
           <label>
             <br></br>
             <textarea
+              className="t_desc"
               name="desc"
               value={this.state.desc}
               onChange={this.handleChange}
               placeholder="Tutorial Description"
             />
           </label>
-          <button type="submit">Submit</button>
+          <button className="t_submit" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     );
@@ -82,7 +88,8 @@ class CreateArticle extends Component {
 
 export default CreateArticle;
 
-{/* <label>
+{
+  /* <label>
   Description:
   <textarea
     name={desc}
@@ -90,4 +97,5 @@ export default CreateArticle;
     onChange={this.handleChange}
     placeholder="Tutorial Description"
   />
-</label>; */}
+</label>; */
+}

@@ -39,7 +39,7 @@ class ArticlePost extends Component {
           <p className="Title">Title: {this.props.article.title}</p>
           <p className="URL">Source: {this.props.article.url}</p> 
           {this.props.individualPost ? (
-            <p className="Description">Decripton: {this.props.article.description}</p>
+            <p className="Description">Descripton: {this.props.article.description}</p>
           ) : (
             <p className="Description">
               Description: {this.truncate(this.props.article.description, 25)}

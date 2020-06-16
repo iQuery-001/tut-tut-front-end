@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Nav from "./Nav";
-import { Router, Switch, Route } from "react-router-dom";
-import Articles from "./articles/Articles";
-import ArticlePost from "./articles/ArticlePost";
 import Axios from "axios";
+import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
-// import ArticleModal from "./articles/ArticleModal";
 import { observer } from "mobx-react";
 import store from "./DataStore";
+import Articles from "./articles/Articles";
+import ArticlePost from "./articles/ArticlePost";
+import Nav from "./Nav";
+// import Filter from "./Filter"
 import './Grid.css'
 import "semantic-ui-css/semantic.min.css";
 
@@ -111,6 +111,7 @@ const Home = observer(
             user={this.state.user}
           />
           {/* <ArticleModal article={{url: "blah"}}/> */}
+          
           <Router history={history}>
             <Switch>
               <Route

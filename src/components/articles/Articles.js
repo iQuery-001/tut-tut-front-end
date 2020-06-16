@@ -4,6 +4,7 @@ import store from "../DataStore.js";
 import { observer } from "mobx-react";
 // import Axios from "axios";
 import CreateArticle from "./CreateArticle";
+import Filter from '../Filter.js'
 import '../Grid.css'
 
 const Articles = observer(
@@ -34,6 +35,7 @@ const Articles = observer(
               getNewArticles={this.getNewArticles}
             />
           ) : null}
+          <Filter></Filter>
 
           <ArticleContainer
             loggedInStatus={this.props.loggedInStatus}

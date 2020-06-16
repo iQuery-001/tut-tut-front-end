@@ -9,8 +9,8 @@ class Nav extends Component {
       <div className="nav">
         {this.props.loggedInStatus === "LOGGED_IN" ? (
           <div>
-            <button onClick={this.props.handleLogout}>Log Out</button>
             <span>{this.props.user.email}</span>
+            <div><button onClick={this.props.handleLogout}>Log Out</button></div>
           </div>
         ) : (
           <div>
