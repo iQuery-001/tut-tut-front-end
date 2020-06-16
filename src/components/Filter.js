@@ -50,7 +50,7 @@ const Filter = observer(
     //   const includedArticles = [];
 
       articles.forEach((article) => {
-        let includeArticle = true;
+        // let includeArticle = true;
         this.state.filters.forEach((filter) => {
           if (!article.title.toLowerCase().includes(filter)) {
             article.show = false;

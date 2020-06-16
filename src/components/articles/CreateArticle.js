@@ -87,15 +87,3 @@ class CreateArticle extends Component {
 }
 
 export default CreateArticle;
-
-{
-  /* <label>
-  Description:
-  <textarea
-    name={desc}
-    value={this.state.desc}
-    onChange={this.handleChange}
-    placeholder="Tutorial Description"
-  />
-</label>; */
-}
